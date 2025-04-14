@@ -17,3 +17,15 @@ describe("formating durations", () => {
     expect(formatDuration(3999)).toBe("1h6m39s");
   });
 });
+
+describe("formating duration exceptions", () => {
+  test("0 is 0s", () => {
+    expect(formatDuration(0)).toBe("0s");
+  });
+  test("-14 throws exception", () => {
+    expect(() =>{formatDuration(-14)}).toThrow("Error Domain");
+  });
+  test("33.546 is 34s", () => {
+    expect(formatDuration(33.546)).toBe("34s");
+  });
+});
